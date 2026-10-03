@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Local raw experiment outputs (do not commit)
+results/
+audio/
+audio/cleaned/
+transcribe/
+classification_results/
+classify_checkpoints/
+lora_whisper_checkpoints/
+lora_whisper_checkpoints_denoised/
+segment/
+segment/sam3_whole/
+**/predicted_masks_*/
+**/rerank_candidates_*/
+**/v*_individual_results/
+*.pkl
+*.pt
+*.bin
+*.safetensors
+
+# Dataset assets (frames, masks, clips)
+camera1_plastics_shareable_dataset/frames/
+camera1_plastics_shareable_dataset/masks/
+camera1_plastics_shareable_dataset/audio_video_clips/
+**/frames/
+**/masks/
+
+# Notebook checkpoints / local scratch
+.ipynb_checkpoints/
+*.log
+nohup.out

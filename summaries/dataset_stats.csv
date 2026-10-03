@@ -1,0 +1,11 @@
+metric,value,source
+n_frames,3538.0,camera1_plastics_meta2.csv
+n_categories,15.0,camera1_plastics_meta2.csv
+n_gx_sequences,6.0,camera1_plastics_meta2.csv
+n_clips,463.0,camera1_plastics_timestamp_groups.csv
+n_common_phrases,104.0,camera1_plastics_common_phrases.csv
+taxonomy_categories,15.0,camera1_plastics_taxonomy.json
+v15_fusion_en,73.4,paper_table
+v15_efficientnet,69.6,paper_table
+paper_mask_iou_v1_pct,8.3,paper_table
+paper_mask_iou_v2_pct,19.8,paper_table

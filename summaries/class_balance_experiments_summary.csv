@@ -1,0 +1,5 @@
+variant,group_top1,macro_f1,other1_fp_rate,film_recall,bags_recall,tail_recall
+A0,73.43,51.87,16.26,50.0,50.0,"{'Garbage Bags': 50.0, 'Other Plastic Film': 50.0, 'Plastic': 33.33, 'Other Rigid/Bulky Plastics': 100.0, 'Other Unnumbered Containers & Fragments': 74.47, 'Black Plastic Containers': 83.78}"
+A1,72.79,53.09,11.69,33.33,50.0,"{'Garbage Bags': 50.0, 'Other Plastic Film': 33.33, 'Plastic': 33.33, 'Other Rigid/Bulky Plastics': 100.0, 'Other Unnumbered Containers & Fragments': 87.23, 'Black Plastic Containers': 83.78}"
+A2,72.57,49.63,10.42,16.67,50.0,"{'Garbage Bags': 50.0, 'Other Plastic Film': 16.67, 'Plastic': 33.33, 'Other Rigid/Bulky Plastics': 100.0, 'Other Unnumbered Containers & Fragments': 80.85, 'Black Plastic Containers': 89.19}"
+A3,72.14,52.27,10.42,16.67,50.0,"{'Garbage Bags': 50.0, 'Other Plastic Film': 16.67, 'Plastic': 33.33, 'Other Rigid/Bulky Plastics': 100.0, 'Other Unnumbered Containers & Fragments': 93.62, 'Black Plastic Containers': 78.38}"

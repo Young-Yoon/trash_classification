@@ -1,0 +1,113 @@
+segment_version,phase,phase_order,base_preset,method,description,n_frames,mask_success_rate,class_top1_rate,class_given_mask_rate,iou_zero_class_ok_rate,pipeline_success_rate,final_probability,adjusted_final_probability
+v1,Phase1_Backbone,1,clip_linear_probe_crop,CLIP linear probe,"Hand-guided ROI; select in-hand max containment, else largest bbox",3538,26.54,17.38,36.32,7.74,9.64,9.64,9.64
+v1,Phase1_Backbone,1,clip_lora_crop,CLIP LoRA,"Hand-guided ROI; select in-hand max containment, else largest bbox",3538,26.54,18.03,37.91,7.97,10.06,10.06,10.06
+v1,Phase1_Backbone,1,efficientnet_b0_crop,EfficientNet-B0,"Hand-guided ROI; select in-hand max containment, else largest bbox",3538,26.54,19.76,42.39,8.51,11.25,11.25,11.25
+v1,Phase1_Backbone,1,late_fusion_clip_whisper_crop,Late fusion,"Hand-guided ROI; select in-hand max containment, else largest bbox",3538,26.54,41.66,56.02,26.79,14.87,14.87,14.87
+v1,Phase1_Backbone,1,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),"Hand-guided ROI; select in-hand max containment, else largest bbox",3538,26.54,25.81,46.86,13.37,12.44,12.44,12.44
+v1,Phase1_Backbone,1,siglip_linear_probe_crop,SigLIP linear probe,"Hand-guided ROI; select in-hand max containment, else largest bbox",3538,26.54,18.43,36.42,8.76,9.67,9.67,9.67
+v1,Phase1_Backbone,1,siglip_lora_crop,SigLIP LoRA,"Hand-guided ROI; select in-hand max containment, else largest bbox",3538,26.54,18.91,38.45,8.71,10.2,10.2,10.2
+v2,Phase1_Backbone,1,clip_linear_probe_crop,CLIP linear probe,Full-image plastic detection; SAM score Top-1,3538,26.79,23.4,58.54,7.72,15.69,15.69,15.69
+v2,Phase1_Backbone,1,clip_lora_crop,CLIP LoRA,Full-image plastic detection; SAM score Top-1,3538,26.79,25.69,64.98,8.28,17.41,17.41,17.41
+v2,Phase1_Backbone,1,efficientnet_b0_crop,EfficientNet-B0,Full-image plastic detection; SAM score Top-1,3538,26.79,30.55,81.43,8.73,21.82,21.82,21.82
+v2,Phase1_Backbone,1,late_fusion_clip_whisper_crop,Late fusion,Full-image plastic detection; SAM score Top-1,3538,26.79,46.13,73.63,26.4,19.73,19.73,19.73
+v2,Phase1_Backbone,1,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Full-image plastic detection; SAM score Top-1,3538,26.79,33.72,81.96,11.76,21.96,21.96,21.96
+v2,Phase1_Backbone,1,siglip_linear_probe_crop,SigLIP linear probe,Full-image plastic detection; SAM score Top-1,3538,26.79,20.92,53.8,6.5,14.41,14.41,14.41
+v2,Phase1_Backbone,1,siglip_lora_crop,SigLIP LoRA,Full-image plastic detection; SAM score Top-1,3538,26.79,23.29,59.39,7.38,15.91,15.91,15.91
+v3,Phase2_MaskSelect,2,clip_linear_probe_crop,CLIP linear probe,v1 detections; SAM score Top-1 from all plastic candidates,3538,61.11,43.75,60.64,6.7,37.05,37.05,37.05
+v3,Phase2_MaskSelect,2,clip_lora_crop,CLIP LoRA,v1 detections; SAM score Top-1 from all plastic candidates,3538,61.11,45.08,62.49,6.9,38.19,38.19,38.19
+v3,Phase2_MaskSelect,2,efficientnet_b0_crop,EfficientNet-B0,v1 detections; SAM score Top-1 from all plastic candidates,3538,61.11,54.01,77.34,6.76,47.26,47.26,47.26
+v3,Phase2_MaskSelect,2,late_fusion_clip_whisper_crop,Late fusion,v1 detections; SAM score Top-1 from all plastic candidates,3538,61.11,60.97,73.17,16.25,44.71,44.71,44.71
+v3,Phase2_MaskSelect,2,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),v1 detections; SAM score Top-1 from all plastic candidates,3538,61.11,58.17,79.74,9.44,48.73,48.73,48.73
+v3,Phase2_MaskSelect,2,siglip_linear_probe_crop,SigLIP linear probe,v1 detections; SAM score Top-1 from all plastic candidates,3538,61.11,42.37,58.28,6.76,35.61,35.61,35.61
+v3,Phase2_MaskSelect,2,siglip_lora_crop,SigLIP LoRA,v1 detections; SAM score Top-1 from all plastic candidates,3538,61.11,44.23,61.61,6.59,37.65,37.65,37.65
+v4,Phase2_MaskSelect,2,clip_linear_probe_crop,CLIP linear probe,Same masks as v3; pixel masking crop at classification time,3538,61.11,30.16,39.92,5.77,24.39,24.39,24.39
+v4,Phase2_MaskSelect,2,clip_lora_crop,CLIP LoRA,Same masks as v3; pixel masking crop at classification time,3538,61.11,31.88,43.06,5.57,26.31,26.31,26.31
+v4,Phase2_MaskSelect,2,efficientnet_b0_crop,EfficientNet-B0,Same masks as v3; pixel masking crop at classification time,3538,61.11,48.19,68.87,6.11,42.09,42.09,42.09
+v4,Phase2_MaskSelect,2,late_fusion_clip_whisper_crop,Late fusion,Same masks as v3; pixel masking crop at classification time,3538,61.11,48.98,56.85,14.25,34.74,34.74,34.74
+v4,Phase2_MaskSelect,2,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same masks as v3; pixel masking crop at classification time,3538,61.11,53.14,73.03,8.51,44.63,44.63,44.63
+v4,Phase2_MaskSelect,2,siglip_linear_probe_crop,SigLIP linear probe,Same masks as v3; pixel masking crop at classification time,3538,61.11,31.32,42.88,5.12,26.2,26.2,26.2
+v4,Phase2_MaskSelect,2,siglip_lora_crop,SigLIP LoRA,Same masks as v3; pixel masking crop at classification time,3538,61.11,32.17,42.0,6.5,25.66,25.66,25.66
+v5,Phase2_MaskSelect,2,clip_linear_probe_crop,CLIP linear probe,"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",3538,63.2,44.74,61.36,5.96,38.78,38.78,38.78
+v5,Phase2_MaskSelect,2,clip_lora_crop,CLIP LoRA,"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",3538,63.2,46.44,64.0,5.99,40.45,40.45,40.45
+v5,Phase2_MaskSelect,2,efficientnet_b0_crop,EfficientNet-B0,"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",3538,63.2,56.59,78.94,6.7,49.89,49.89,49.89
+v5,Phase2_MaskSelect,2,late_fusion_clip_whisper_crop,Late fusion,"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",3538,63.2,61.25,73.48,14.81,46.44,46.44,46.44
+v5,Phase2_MaskSelect,2,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",3538,63.2,59.95,81.17,8.65,51.3,51.3,51.3
+v5,Phase2_MaskSelect,2,siglip_linear_probe_crop,SigLIP linear probe,"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",3538,63.2,42.37,58.36,5.48,36.89,36.89,36.89
+v5,Phase2_MaskSelect,2,siglip_lora_crop,SigLIP LoRA,"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",3538,63.2,44.69,62.57,5.14,39.54,39.54,39.54
+v6,Phase2_MaskSelect,2,clip_linear_probe_crop,CLIP linear probe,Same masks as v5; pixel masking crop at classification time,3538,63.2,30.78,40.07,5.46,25.33,25.33,25.33
+v6,Phase2_MaskSelect,2,clip_lora_crop,CLIP LoRA,Same masks as v5; pixel masking crop at classification time,3538,63.2,32.17,43.47,4.69,27.47,27.47,27.47
+v6,Phase2_MaskSelect,2,efficientnet_b0_crop,EfficientNet-B0,Same masks as v5; pixel masking crop at classification time,3538,63.2,50.25,69.86,6.11,44.15,44.15,44.15
+v6,Phase2_MaskSelect,2,late_fusion_clip_whisper_crop,Late fusion,Same masks as v5; pixel masking crop at classification time,3538,63.2,49.21,57.11,13.11,36.09,36.09,36.09
+v6,Phase2_MaskSelect,2,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same masks as v5; pixel masking crop at classification time,3538,63.2,54.41,73.84,7.74,46.66,46.66,46.66
+v6,Phase2_MaskSelect,2,siglip_linear_probe_crop,SigLIP linear probe,Same masks as v5; pixel masking crop at classification time,3538,63.2,31.51,43.25,4.18,27.33,27.33,27.33
+v6,Phase2_MaskSelect,2,siglip_lora_crop,SigLIP LoRA,Same masks as v5; pixel masking crop at classification time,3538,63.2,31.97,42.58,5.06,26.91,26.91,26.91
+v8,Phase2_MaskSelect,2,clip_linear_probe_crop,CLIP linear probe,Same masks as v5; bbox crop with 15% padding,3538,63.2,39.97,53.67,6.05,33.92,33.92,33.92
+v8,Phase2_MaskSelect,2,clip_lora_crop,CLIP LoRA,Same masks as v5; bbox crop with 15% padding,3538,63.2,42.74,57.92,6.13,36.6,36.6,36.6
+v8,Phase2_MaskSelect,2,efficientnet_b0_crop,EfficientNet-B0,Same masks as v5; bbox crop with 15% padding,3538,63.2,54.44,76.12,6.33,48.11,48.11,48.11
+v8,Phase2_MaskSelect,2,late_fusion_clip_whisper_crop,Late fusion,Same masks as v5; bbox crop with 15% padding,3538,63.2,59.04,69.99,14.81,44.23,44.23,44.23
+v8,Phase2_MaskSelect,2,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same masks as v5; bbox crop with 15% padding,3538,63.2,58.34,78.85,8.51,49.83,49.83,49.83
+v8,Phase2_MaskSelect,2,siglip_linear_probe_crop,SigLIP linear probe,Same masks as v5; bbox crop with 15% padding,3538,63.2,40.98,55.99,5.6,35.39,35.39,35.39
+v8,Phase2_MaskSelect,2,siglip_lora_crop,SigLIP LoRA,Same masks as v5; bbox crop with 15% padding,3538,63.2,40.96,56.62,5.17,35.78,35.78,35.78
+v10,Phase3_RerankPool,3,clip_linear_probe_crop,CLIP linear probe,In-hand Top-5 score candidates; classifier confidence rerank,3538,61.59,47.8,66.27,6.98,40.81,40.81,40.81
+v10,Phase3_RerankPool,3,clip_lora_crop,CLIP LoRA,In-hand Top-5 score candidates; classifier confidence rerank,3538,61.14,49.01,68.98,6.84,42.17,42.17,42.17
+v10,Phase3_RerankPool,3,efficientnet_b0_crop,EfficientNet-B0,In-hand Top-5 score candidates; classifier confidence rerank,3538,65.57,63.82,87.46,6.47,57.35,57.35,57.35
+v10,Phase3_RerankPool,3,late_fusion_clip_whisper_crop,Late fusion,In-hand Top-5 score candidates; classifier confidence rerank,3538,63.96,63.79,77.86,13.99,49.8,49.8,49.8
+v10,Phase3_RerankPool,3,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),In-hand Top-5 score candidates; classifier confidence rerank,3538,66.7,66.11,88.01,7.41,58.71,58.71,58.71
+v10,Phase3_RerankPool,3,siglip_linear_probe_crop,SigLIP linear probe,In-hand Top-5 score candidates; classifier confidence rerank,3538,62.92,44.8,63.25,5.0,39.8,39.8,39.8
+v10,Phase3_RerankPool,3,siglip_lora_crop,SigLIP LoRA,In-hand Top-5 score candidates; classifier confidence rerank,3538,61.31,47.4,68.42,5.46,41.94,41.94,41.94
+v7,Phase3_RerankPool,3,clip_linear_probe_crop,CLIP linear probe,Top-5 score candidates from v1; classifier rerank by confidence,3538,59.16,44.69,65.46,5.96,38.72,38.72,38.72
+v7,Phase3_RerankPool,3,clip_lora_crop,CLIP LoRA,Top-5 score candidates from v1; classifier rerank by confidence,3538,59.1,46.78,69.06,5.96,40.81,40.81,40.81
+v7,Phase3_RerankPool,3,efficientnet_b0_crop,EfficientNet-B0,Top-5 score candidates from v1; classifier rerank by confidence,3538,63.2,59.61,86.4,5.0,54.61,54.61,54.61
+v7,Phase3_RerankPool,3,late_fusion_clip_whisper_crop,Late fusion,Top-5 score candidates from v1; classifier rerank by confidence,3538,61.5,58.79,77.3,11.25,47.54,47.54,47.54
+v7,Phase3_RerankPool,3,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Top-5 score candidates from v1; classifier rerank by confidence,3538,64.67,62.04,86.84,5.88,56.16,56.16,56.16
+v7,Phase3_RerankPool,3,siglip_linear_probe_crop,SigLIP linear probe,Top-5 score candidates from v1; classifier rerank by confidence,3538,60.88,42.79,63.28,4.27,38.52,38.52,38.52
+v7,Phase3_RerankPool,3,siglip_lora_crop,SigLIP LoRA,Top-5 score candidates from v1; classifier rerank by confidence,3538,59.19,44.57,67.72,4.49,40.08,40.08,40.08
+v9,Phase3_RerankPool,3,clip_linear_probe_crop,CLIP linear probe,v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,3538,60.54,46.5,65.03,7.12,39.37,39.37,39.37
+v9,Phase3_RerankPool,3,clip_lora_crop,CLIP LoRA,v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,3538,60.49,48.5,68.74,6.92,41.58,41.58,41.58
+v9,Phase3_RerankPool,3,efficientnet_b0_crop,EfficientNet-B0,v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,3538,64.5,61.9,86.06,6.39,55.51,55.51,55.51
+v9,Phase3_RerankPool,3,late_fusion_clip_whisper_crop,Late fusion,v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,3538,62.89,62.92,76.99,14.5,48.42,48.42,48.42
+v9,Phase3_RerankPool,3,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,3538,66.05,64.73,86.52,7.57,57.15,57.15,57.15
+v9,Phase3_RerankPool,3,siglip_linear_probe_crop,SigLIP linear probe,v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,3538,62.18,43.87,62.59,4.95,38.92,38.92,38.92
+v9,Phase3_RerankPool,3,siglip_lora_crop,SigLIP LoRA,v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,3538,60.49,45.79,67.1,5.2,40.59,40.59,40.59
+v11,Phase4_RerankStrategy,4,clip_linear_probe_crop,CLIP linear probe,Same candidate pool as v7; margin (top1-top2) rerank,3538,58.28,43.98,64.84,6.19,37.79,37.79,37.79
+v11,Phase4_RerankStrategy,4,clip_lora_crop,CLIP LoRA,Same candidate pool as v7; margin (top1-top2) rerank,3538,58.54,46.21,69.15,5.74,40.47,40.47,40.47
+v11,Phase4_RerankStrategy,4,efficientnet_b0_crop,EfficientNet-B0,Same candidate pool as v7; margin (top1-top2) rerank,3538,63.14,59.47,86.53,4.83,54.64,54.64,54.64
+v11,Phase4_RerankStrategy,4,late_fusion_clip_whisper_crop,Late fusion,Same candidate pool as v7; margin (top1-top2) rerank,3538,61.33,58.99,77.47,11.48,47.51,47.51,47.51
+v11,Phase4_RerankStrategy,4,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same candidate pool as v7; margin (top1-top2) rerank,3538,64.56,62.21,86.91,6.11,56.11,56.11,56.11
+v11,Phase4_RerankStrategy,4,siglip_linear_probe_crop,SigLIP linear probe,Same candidate pool as v7; margin (top1-top2) rerank,3538,60.29,42.28,62.96,4.32,37.96,37.96,37.96
+v11,Phase4_RerankStrategy,4,siglip_lora_crop,SigLIP LoRA,Same candidate pool as v7; margin (top1-top2) rerank,3538,58.59,44.12,67.58,4.52,39.6,39.6,39.6
+v12,Phase4_RerankStrategy,4,clip_linear_probe_crop,CLIP linear probe,Same candidate pool as v10; margin rerank,3538,60.91,46.89,65.57,6.95,39.94,39.94,39.94
+v12,Phase4_RerankStrategy,4,clip_lora_crop,CLIP LoRA,Same candidate pool as v10; margin rerank,3538,60.54,48.5,69.47,6.44,42.06,42.06,42.06
+v12,Phase4_RerankStrategy,4,efficientnet_b0_crop,EfficientNet-B0,Same candidate pool as v10; margin rerank,3538,65.6,63.85,87.63,6.36,57.49,57.49,57.49
+v12,Phase4_RerankStrategy,4,late_fusion_clip_whisper_crop,Late fusion,Same candidate pool as v10; margin rerank,3538,63.88,63.91,77.79,14.22,49.69,49.69,49.69
+v12,Phase4_RerankStrategy,4,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same candidate pool as v10; margin rerank,3538,66.56,66.14,88.03,7.55,58.59,58.59,58.59
+v12,Phase4_RerankStrategy,4,siglip_linear_probe_crop,SigLIP linear probe,Same candidate pool as v10; margin rerank,3538,61.76,44.15,63.2,5.12,39.03,39.03,39.03
+v12,Phase4_RerankStrategy,4,siglip_lora_crop,SigLIP LoRA,Same candidate pool as v10; margin rerank,3538,60.74,46.3,67.61,5.23,41.07,41.07,41.07
+v13,Phase4_RerankStrategy,4,clip_linear_probe_crop,CLIP linear probe,Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),3538,62.15,46.35,65.62,5.57,40.79,40.79,40.79
+v13,Phase4_RerankStrategy,4,clip_lora_crop,CLIP LoRA,Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),3538,63.06,48.22,68.53,5.0,43.22,43.22,43.22
+v13,Phase4_RerankStrategy,4,efficientnet_b0_crop,EfficientNet-B0,Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),3538,64.41,59.41,84.86,4.75,54.66,54.66,54.66
+v13,Phase4_RerankStrategy,4,late_fusion_clip_whisper_crop,Late fusion,Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),3538,63.76,59.92,76.99,10.83,49.1,49.1,49.1
+v13,Phase4_RerankStrategy,4,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),3538,64.92,60.37,84.68,5.4,54.97,54.97,54.97
+v13,Phase4_RerankStrategy,4,siglip_linear_probe_crop,SigLIP linear probe,Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),3538,64.22,44.97,63.12,4.44,40.53,40.53,40.53
+v13,Phase4_RerankStrategy,4,siglip_lora_crop,SigLIP LoRA,Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),3538,62.89,47.31,68.4,4.3,43.02,43.02,43.02
+v14,Phase4_RerankStrategy,4,clip_linear_probe_crop,CLIP linear probe,Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),3538,61.73,45.76,65.06,5.6,40.16,40.16,40.16
+v14,Phase4_RerankStrategy,4,clip_lora_crop,CLIP LoRA,Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),3538,62.21,47.91,68.33,5.4,42.51,42.51,42.51
+v14,Phase4_RerankStrategy,4,efficientnet_b0_crop,EfficientNet-B0,Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),3538,64.87,60.12,85.36,4.75,55.37,55.37,55.37
+v14,Phase4_RerankStrategy,4,late_fusion_clip_whisper_crop,Late fusion,Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),3538,63.11,59.75,77.34,10.94,48.81,48.81,48.81
+v14,Phase4_RerankStrategy,4,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),3538,65.18,61.05,85.0,5.65,55.4,55.4,55.4
+v14,Phase4_RerankStrategy,4,siglip_linear_probe_crop,SigLIP linear probe,Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),3538,63.37,44.46,63.29,4.35,40.11,40.11,40.11
+v14,Phase4_RerankStrategy,4,siglip_lora_crop,SigLIP LoRA,Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),3538,62.13,46.64,68.33,4.18,42.45,42.45,42.45
+v15,Phase4_RerankStrategy,4,clip_linear_probe_crop,CLIP linear probe,Same pool as v7; margin rerank + Whisper category match bonus,3538,59.36,47.03,67.86,6.76,40.28,40.28,40.28
+v15,Phase4_RerankStrategy,4,clip_lora_crop,CLIP LoRA,Same pool as v7; margin rerank + Whisper category match bonus,3538,59.53,49.21,71.51,6.64,42.57,42.57,42.57
+v15,Phase4_RerankStrategy,4,efficientnet_b0_crop,EfficientNet-B0,Same pool as v7; margin rerank + Whisper category match bonus,3538,64.13,61.22,87.17,5.31,55.91,55.91,55.91
+v15,Phase4_RerankStrategy,4,late_fusion_clip_whisper_crop,Late fusion,Same pool as v7; margin rerank + Whisper category match bonus,3538,61.42,59.61,77.73,11.87,47.74,47.74,47.74
+v15,Phase4_RerankStrategy,4,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same pool as v7; margin rerank + Whisper category match bonus,3538,64.95,63.17,87.34,6.44,56.73,56.73,56.73
+v15,Phase4_RerankStrategy,4,siglip_linear_probe_crop,SigLIP linear probe,Same pool as v7; margin rerank + Whisper category match bonus,3538,60.85,45.59,65.95,5.46,40.14,40.14,40.14
+v15,Phase4_RerankStrategy,4,siglip_lora_crop,SigLIP LoRA,Same pool as v7; margin rerank + Whisper category match bonus,3538,59.36,46.78,69.9,5.29,41.49,41.49,41.49
+v16,Phase4_RerankStrategy,4,clip_linear_probe_crop,CLIP linear probe,Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),3538,62.46,46.1,64.98,5.51,40.59,40.59,40.59
+v16,Phase4_RerankStrategy,4,clip_lora_crop,CLIP LoRA,Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),3538,62.24,46.83,67.08,5.09,41.75,41.75,41.75
+v16,Phase4_RerankStrategy,4,efficientnet_b0_crop,EfficientNet-B0,Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),3538,64.67,59.53,84.83,4.66,54.86,54.86,54.86
+v16,Phase4_RerankStrategy,4,late_fusion_clip_whisper_crop,Late fusion,Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),3538,63.31,59.81,76.79,11.19,48.62,48.62,48.62
+v16,Phase4_RerankStrategy,4,late_fusion_efficientnet_whisper_crop,Late fusion (EfficientNet),Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),3538,64.84,60.34,84.57,5.51,54.83,54.83,54.83
+v16,Phase4_RerankStrategy,4,siglip_linear_probe_crop,SigLIP linear probe,Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),3538,63.74,44.23,62.48,4.41,39.82,39.82,39.82
+v16,Phase4_RerankStrategy,4,siglip_lora_crop,SigLIP LoRA,Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),3538,62.38,46.44,67.74,4.18,42.26,42.26,42.26

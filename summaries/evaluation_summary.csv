@@ -1,0 +1,7 @@
+version,audio_type,lora_training,num_samples,phrase_match_rate,rule_based_success_rate,semantic_success_rate,phrase_baseline_from_meta2
+v1,original,n/a,463,41.9,30.45,42.76,91.14
+v2,original,n/a,463,68.47,61.34,66.95,91.14
+lora,original,original,463,66.09,79.05,81.86,91.14
+v2_denoised,denoised,n/a,463,59.83,53.13,62.2,91.14
+lora_denoised,denoised,original,463,66.74,76.46,80.13,91.14
+lora_denoised_trained,denoised,denoised,463,49.89,62.63,73.0,91.14

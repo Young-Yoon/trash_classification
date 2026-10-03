@@ -1,0 +1,17 @@
+segment_version,phase,crop_mode,bbox_padding,rerank_strategy,description,is_reported_final
+v1,Phase1_Backbone,bbox,0.0,,"Hand-guided ROI; select in-hand max containment, else largest bbox",False
+v2,Phase1_Backbone,bbox,0.0,,Full-image plastic detection; SAM score Top-1,False
+v3,Phase2_MaskSelect,bbox,0.0,,v1 detections; SAM score Top-1 from all plastic candidates,False
+v4,Phase2_MaskSelect,masked,0.0,,Same masks as v3; pixel masking crop at classification time,False
+v5,Phase2_MaskSelect,bbox,0.0,,"v1 in-hand score Top-1, else v2 full-image Top-1 fallback",False
+v6,Phase2_MaskSelect,masked,0.0,,Same masks as v5; pixel masking crop at classification time,False
+v7,Phase3_RerankPool,bbox,0.0,confidence,Top-5 score candidates from v1; classifier rerank by confidence,False
+v8,Phase2_MaskSelect,bbox,0.15,,Same masks as v5; bbox crop with 15% padding,False
+v9,Phase3_RerankPool,bbox,0.0,confidence,v5 candidate pool (in-hand + v2 + score-ranked); Top-5 rerank,False
+v10,Phase3_RerankPool,bbox,0.0,confidence,In-hand Top-5 score candidates; classifier confidence rerank,False
+v11,Phase4_RerankStrategy,bbox,0.0,margin,Same candidate pool as v7; margin (top1-top2) rerank,False
+v12,Phase4_RerankStrategy,bbox,0.0,margin,Same candidate pool as v10; margin rerank,False
+v13,Phase4_RerankStrategy,bbox,0.0,composite,Same pool as v7; composite rerank (0.7 cls conf + 0.3 SAM score),False
+v14,Phase4_RerankStrategy,bbox,0.0,composite_margin,Same pool as v7; composite margin rerank (0.7 margin + 0.3 SAM score),False
+v15,Phase4_RerankStrategy,bbox,0.0,text_aware,Same pool as v7; margin rerank + Whisper category match bonus,True
+v16,Phase4_RerankStrategy,bbox,0.0,geo_composite,Same pool as v7; geo composite (0.5 margin + 0.3 SAM + 0.2 hand IoU),False

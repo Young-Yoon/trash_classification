@@ -1,0 +1,6 @@
+# Minimal deps for summary rebuild + docs tooling.
+# Full training/inference stacks:
+#   pip install -r scripts/requirements.txt
+#   pip install -r scripts/classify/requirements.txt
+pandas>=2.0
+numpy>=1.24
