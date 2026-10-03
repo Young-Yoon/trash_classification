@@ -21,9 +21,15 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 _DEFAULT_CSIRE = PROJECT_ROOT.parent / "csire_code"
 CSIRE_CODE_ROOT = Path(os.environ.get("CSIRE_CODE_ROOT", str(_DEFAULT_CSIRE))).expanduser()
 
+_REPO_DATA = PROJECT_ROOT / "data"
+_REPO_DATASET = _REPO_DATA / "camera1_plastics_shareable_dataset"
+
 _EGOWASTE_ENV = os.environ.get("EGOWASTE_ROOT") or os.environ.get("CSIRE_DATA_ROOT")
 if _EGOWASTE_ENV:
     EGOWASTE_ROOT = Path(_EGOWASTE_ENV).expanduser()
+elif _REPO_DATASET.is_dir():
+    # Shipped meta CSVs live under data/; heavy assets still come from EGOWASTE_ASSET_ROOT.
+    EGOWASTE_ROOT = _REPO_DATA
 elif (CSIRE_CODE_ROOT / "camera1_plastics_shareable_dataset").is_dir():
     EGOWASTE_ROOT = CSIRE_CODE_ROOT
 elif (PROJECT_ROOT.parent / "camera1_plastics_shareable_dataset").is_dir():
@@ -31,13 +37,22 @@ elif (PROJECT_ROOT.parent / "camera1_plastics_shareable_dataset").is_dir():
 else:
     EGOWASTE_ROOT = PROJECT_ROOT
 
-DATASET_META_ROOT = EGOWASTE_ROOT / "camera1_plastics_shareable_dataset"
-# Frame/mask assets may live next to the workspace even when meta CSVs are under csire_code.
+if (EGOWASTE_ROOT / "camera1_plastics_shareable_dataset").is_dir():
+    DATASET_META_ROOT = EGOWASTE_ROOT / "camera1_plastics_shareable_dataset"
+elif _REPO_DATASET.is_dir():
+    DATASET_META_ROOT = _REPO_DATASET
+else:
+    DATASET_META_ROOT = EGOWASTE_ROOT / "camera1_plastics_shareable_dataset"
+
+# Frame/mask assets may live next to the workspace even when meta CSVs are under data/.
 _ASSET_CANDIDATES = [
     Path(os.environ["EGOWASTE_ASSET_ROOT"]).expanduser()
     if os.environ.get("EGOWASTE_ASSET_ROOT")
     else None,
     PROJECT_ROOT.parent / "camera1_plastics_shareable_dataset",
+    CSIRE_CODE_ROOT / "camera1_plastics_shareable_dataset"
+    if (CSIRE_CODE_ROOT / "camera1_plastics_shareable_dataset").is_dir()
+    else None,
     DATASET_META_ROOT,
 ]
 DATASET_ASSET_ROOT = next(
@@ -46,11 +61,20 @@ DATASET_ASSET_ROOT = next(
 )
 DATASET_ROOT = DATASET_META_ROOT
 
-AUDIO_DIR = EGOWASTE_ROOT / "audio"
+# Heavy runtime outputs stay under a full tree; otherwise fall back to CSIRE_CODE_ROOT.
+_RUNTIME_ROOT = (
+    EGOWASTE_ROOT
+    if (EGOWASTE_ROOT / "segment").is_dir() or (EGOWASTE_ROOT / "audio").is_dir()
+    else CSIRE_CODE_ROOT
+    if CSIRE_CODE_ROOT.is_dir()
+    else EGOWASTE_ROOT
+)
+
+AUDIO_DIR = _RUNTIME_ROOT / "audio"
 AUDIO_CLEANED_DIR = AUDIO_DIR / "cleaned"
-TRANSCRIBE_DIR = EGOWASTE_ROOT / "transcribe"
-LORA_CHECKPOINT_DIR = EGOWASTE_ROOT / "lora_whisper_checkpoints"
-LORA_DENOISED_CHECKPOINT_DIR = EGOWASTE_ROOT / "lora_whisper_checkpoints_denoised"
+TRANSCRIBE_DIR = _RUNTIME_ROOT / "transcribe"
+LORA_CHECKPOINT_DIR = _RUNTIME_ROOT / "lora_whisper_checkpoints"
+LORA_DENOISED_CHECKPOINT_DIR = _RUNTIME_ROOT / "lora_whisper_checkpoints_denoised"
 RESULTS_DIR = PROJECT_ROOT / "results"
 SUMMARIES_DIR = PROJECT_ROOT / "summaries"
 
@@ -58,7 +82,7 @@ META2_CSV = DATASET_ROOT / "camera1_plastics_meta2.csv"
 TIMESTAMP_GROUPS_CSV = DATASET_ROOT / "camera1_plastics_timestamp_groups.csv"
 COMMON_PHRASES_CSV = DATASET_ROOT / "camera1_plastics_common_phrases.csv"
 TAXONOMY_JSON = DATASET_ROOT / "camera1_plastics_taxonomy.json"
-VIDEO_CLIPS_DIR = DATASET_ROOT / "audio_video_clips"
+VIDEO_CLIPS_DIR = DATASET_ASSET_ROOT / "audio_video_clips"
 
 TRANSCRIBE_V1_DIR = TRANSCRIBE_DIR / "v1"
 TRANSCRIBE_V2_DIR = TRANSCRIBE_DIR / "v2"
@@ -76,12 +100,28 @@ MANIFEST_V2_DENOISED = TRANSCRIBE_DIR / "manifest_v2_denoised.json"
 MANIFEST_LORA_DENOISED = TRANSCRIBE_DIR / "manifest_lora_denoised.json"
 MANIFEST_LORA_DENOISED_TRAINED = TRANSCRIBE_DIR / "manifest_lora_denoised_trained.json"
 
-TRAINING_METADATA_CSV = EGOWASTE_ROOT / "training_metadata.csv"
-TRAINING_METADATA_DENOISED_CSV = EGOWASTE_ROOT / "training_metadata_denoised.csv"
+_TRAIN_META_CANDIDATES = [
+    _REPO_DATA / "training_metadata.csv",
+    EGOWASTE_ROOT / "training_metadata.csv",
+    CSIRE_CODE_ROOT / "training_metadata.csv",
+]
+TRAINING_METADATA_CSV = next(
+    (p for p in _TRAIN_META_CANDIDATES if p.is_file()),
+    _REPO_DATA / "training_metadata.csv",
+)
+_TRAIN_META_DENOISED_CANDIDATES = [
+    _REPO_DATA / "training_metadata_denoised.csv",
+    EGOWASTE_ROOT / "training_metadata_denoised.csv",
+    CSIRE_CODE_ROOT / "training_metadata_denoised.csv",
+]
+TRAINING_METADATA_DENOISED_CSV = next(
+    (p for p in _TRAIN_META_DENOISED_CANDIDATES if p.is_file()),
+    _REPO_DATA / "training_metadata_denoised.csv",
+)
 EVAL_SUMMARY_CSV = RESULTS_DIR / "evaluation_summary.csv"
 
 # SAM3 segmentation outputs (local / gitignored)
-SEGMENT_DIR = EGOWASTE_ROOT / "segment" / "sam3_whole"
+SEGMENT_DIR = _RUNTIME_ROOT / "segment" / "sam3_whole"
 SEGMENT_V1_DIR = SEGMENT_DIR / "v1_individual_results"
 SEGMENT_V1_HAND_GLOVE_DIR = SEGMENT_DIR / "v1_hand_glove_individual_results"
 SEGMENT_V2_DIR = SEGMENT_DIR / "v2_individual_results"
@@ -92,12 +132,12 @@ SEGMENT_EVAL_SUMMARY_CSV = SEGMENT_DIR / "segment_evaluation_summary.csv"
 SEGMENT_RESULTS_V1_PKL = SEGMENT_DIR / "detection_results_v1.pkl"
 SEGMENT_RESULTS_V2_PKL = SEGMENT_DIR / "detection_results_v2.pkl"
 
-CLASSIFICATION_RESULTS_DIR = EGOWASTE_ROOT / "classification_results"
+CLASSIFICATION_RESULTS_DIR = _RUNTIME_ROOT / "classification_results"
 CLASSIFICATION_SUMMARY_CSV = RESULTS_DIR / "classification_summary.csv"
 CLASSIFICATION_SEGMENT_SUMMARY_CSV = RESULTS_DIR / "classification_segment_summary.csv"
 CLASSIFICATION_SEGMENT_ZEROSHOT_SUMMARY_CSV = RESULTS_DIR / "classification_segment_zeroshot_summary.csv"
 CLASSIFICATION_COMPARISON_CSV = RESULTS_DIR / "classification_comparison.csv"
-CLASSIFY_CHECKPOINT_DIR = EGOWASTE_ROOT / "classify_checkpoints"
+CLASSIFY_CHECKPOINT_DIR = _RUNTIME_ROOT / "classify_checkpoints"
 SEGMENT_PREDICTED_MASKS_V1_DIR = SEGMENT_DIR / "predicted_masks_v1"
 SEGMENT_PREDICTED_MASKS_V2_DIR = SEGMENT_DIR / "predicted_masks_v2"
 SEGMENT_PREDICTED_MASKS_V3_DIR = SEGMENT_DIR / "predicted_masks_v3"

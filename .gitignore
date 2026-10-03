@@ -30,7 +30,10 @@ segment/sam3_whole/
 *.bin
 *.safetensors
 
-# Dataset assets (frames, masks, clips)
+# Dataset assets (frames, masks, clips) — meta CSV/JSON under data/ are tracked
+data/camera1_plastics_shareable_dataset/frames/
+data/camera1_plastics_shareable_dataset/masks/
+data/camera1_plastics_shareable_dataset/audio_video_clips/
 camera1_plastics_shareable_dataset/frames/
 camera1_plastics_shareable_dataset/masks/
 camera1_plastics_shareable_dataset/audio_video_clips/

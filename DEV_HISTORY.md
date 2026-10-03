@@ -17,9 +17,12 @@ plastics while naming them aloud. Camera-1 plastics subset:
 
 ## Notebook → package port
 
+Original Colab notebooks are under [`notebooks/`](notebooks/). Dataset meta is
+under [`data/`](data/); the latest paper snapshot is under [`paper/`](paper/).
+
 | Phase | Notebooks | Scripts |
 |-------|-----------|---------|
-| Data + early detect | `EgoWaste.ipynb` | `scripts/shared/`, `scripts/segment/` |
+| Data + early detect | `notebooks/EgoWaste.ipynb` | `scripts/shared/`, `scripts/segment/` |
 | SAM3 + IoU | `sam3.ipynb`, `sam3_260726.ipynb` | `scripts/segment/run_detect.py`, `evaluate_iou.py` |
 | Crops / classify | `image.ipynb`, `imageClassify.ipynb` | `scripts/classify/` |
 | ASR | `whisperV1.ipynb`, `audio.ipynb`, `lora_whisper_finetune.ipynb` | `scripts/whisper/` |
@@ -92,11 +95,11 @@ From `summaries/class_balance_experiments_summary.csv` (group Top-1 %):
 
 ## Paper snapshots
 
-Workspace drafts (not vendored into this git tree by default):
+Shipped in this repo under [`paper/`](paper/) (from `paper_v2_0919`):
 
-1. `paper/main.tex` — title *Investigating Automated Plastic Waste Sorting Using Multimodal Classification*
-2. `paper_v2_0919/diffs/` — incremental edits `00_fig1_ablation` → `01_affiliation` → `02_framing` → `03_related` → `04_method` → `05_exp_intro` → `08_discussion`
-3. `paper_v1_0915/main.tex`, `paper_v2_0919/main.tex` — retitled *Mining Egocentric Video with Sorter Speech for Plastic Classification*; **v2 is the latest body**
+1. `paper/main.tex`, `paper/refs.bib`, `paper/main.pdf` — title *Mining Egocentric Video with Sorter Speech for Plastic Classification*
+2. `paper/fig/` — Fig.1 frame/crops, Fig.2 diagram, confusion-matrix row used in the draft
+3. Workspace-only history (not copied): `paper_v2_0919/diffs/` (`00`–`05`, `08`) and older title in `paper/main.tex` / `paper_v1_0915`
 
 ## How to regenerate tables
 

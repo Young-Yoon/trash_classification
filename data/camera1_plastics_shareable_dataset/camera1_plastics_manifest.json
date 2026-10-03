@@ -1,0 +1,28 @@
+{
+  "dataset": "EgoWaste",
+  "subset": "Camera 1 Plastics",
+  "source_meta2_files": [
+    "/media/jisha/E/trash_dataset/Brookhaven MRF 20250604 Preproc/Camera 1/GX010023/data/meta2.csv",
+    "/media/jisha/E/trash_dataset/Brookhaven MRF 20250604 Preproc/Camera 1/GX010024/data/meta2.csv",
+    "/media/jisha/E/trash_dataset/Brookhaven MRF 20250604 Preproc/Camera 1/GX010025/data/meta2.csv",
+    "/media/jisha/E/trash_dataset/Brookhaven MRF 20250604 Preproc/Camera 1/GX020023/data/meta2.csv",
+    "/media/jisha/E/trash_dataset/Brookhaven MRF 20250604 Preproc/Camera 1/GX020025/data/meta2.csv",
+    "/media/jisha/E/trash_dataset/Brookhaven MRF 20250604 Preproc/Camera 1/GX030023/data/meta2.csv"
+  ],
+  "number_of_annotation_rows": 3538,
+  "number_of_unique_frames": 3002,
+  "number_of_unique_masks": 3310,
+  "number_of_gx_sequences": 6,
+  "number_of_categories": 15,
+  "number_of_timestamp_groups": 463,
+  "number_of_generated_clips": 463,
+  "number_of_common_phrases": 104,
+  "taxonomy_category_count": 15,
+  "files": {
+    "plastic_meta2_csv": "camera1_plastics_meta2.csv",
+    "timestamp_groups_csv": "camera1_plastics_timestamp_groups.csv",
+    "common_phrases_csv": "camera1_plastics_common_phrases.csv",
+    "plastic_taxonomy_json": "camera1_plastics_taxonomy.json",
+    "readme": "README.txt"
+  }
+}

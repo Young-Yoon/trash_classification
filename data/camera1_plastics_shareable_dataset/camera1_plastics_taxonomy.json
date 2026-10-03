@@ -1,0 +1,159 @@
+{
+  "dataset": "EgoWaste",
+  "camera": "Camera 1",
+  "subset_supercategory": "Plastics",
+  "number_of_plastic_categories": 15,
+  "recycle_category_options": [],
+  "categories": [
+    {
+      "supercategory": "Plastics",
+      "name": "Black Plastic Containers",
+      "abbreviation": "Black Plastic Containers",
+      "recycle_category": "Other Plastics",
+      "description": "Plastic containers, whether numbered or unnumbered, that are colored black. Excludes single-use utensils and non-container plastics.",
+      "number_of_instances": 251,
+      "number_of_unique_frames": 212,
+      "number_of_gx_sequences": 6
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Containers #1/Clamshells",
+      "abbreviation": "1 Clamshell/ 1",
+      "recycle_category": "PET (#1)/HDPE (#2) Containers",
+      "description": "Plastic containers or lids that are labelled as PETE, PET, or #1 (polyethylene terephthalate) without a screw-off lid.",
+      "number_of_instances": 493,
+      "number_of_unique_frames": 410,
+      "number_of_gx_sequences": 6
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Containers #2 Colored",
+      "abbreviation": "2 Colored",
+      "recycle_category": "PET (#1)/HDPE (#2) Containers",
+      "description": "Plastic containers that are labelled as HDPE, PEHD, or #2 that are pigmented (excluding black).",
+      "number_of_instances": 236,
+      "number_of_unique_frames": 206,
+      "number_of_gx_sequences": 4
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Containers #2 Natural",
+      "abbreviation": "2 Natural",
+      "recycle_category": "PET (#1)/HDPE (#2) Containers",
+      "description": "Plastic containers that are labelled as HDPE, PEHD, or #2 that are opaque.",
+      "number_of_instances": 169,
+      "number_of_unique_frames": 137,
+      "number_of_gx_sequences": 4
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Containers #3-7 (Not #5)",
+      "abbreviation": "3 to 7",
+      "recycle_category": "Other Plastic Containers",
+      "description": "Plastic containers that are labeled #3 PVC, #4 LDPE, #6 PS, #7 PLA (excluding #5). Does not include EPS, even if labelled #6.",
+      "number_of_instances": 130,
+      "number_of_unique_frames": 107,
+      "number_of_gx_sequences": 5
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Containers #5/PP",
+      "abbreviation": "5",
+      "recycle_category": "Other Plastic Containers",
+      "description": "Plastic containers that are labeled PP (polypropylene) or #5.",
+      "number_of_instances": 386,
+      "number_of_unique_frames": 340,
+      "number_of_gx_sequences": 5
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Deposit #1 Bottles",
+      "abbreviation": "1 Deposit",
+      "recycle_category": "PET (#1)/HDPE (#2) Containers",
+      "description": "Plastic containers that are labelled as PETE, PET, or #1 (polyethylene terephthalate) with NY Deposit listed. Must have a screw-off lid.",
+      "number_of_instances": 357,
+      "number_of_unique_frames": 294,
+      "number_of_gx_sequences": 5
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Garbage Bags",
+      "abbreviation": "",
+      "recycle_category": "Other Plastics",
+      "description": "Disposable bag used line trash cans to hold solid waste. Includes bathroom trash bags and contractor bags.",
+      "number_of_instances": 9,
+      "number_of_unique_frames": 9,
+      "number_of_gx_sequences": 1
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Non-Deposit",
+      "abbreviation": "",
+      "recycle_category": "",
+      "description": "",
+      "number_of_instances": 164,
+      "number_of_unique_frames": 137,
+      "number_of_gx_sequences": 5
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Other #1 Bottles",
+      "abbreviation": "1 Other",
+      "recycle_category": "PET (#1)/HDPE (#2) Containers",
+      "description": "Plastic containers that are labelled as PETE, PET, or #1 (polyethylene terephthalate) without NY Deposit listed. Must have a screw-off lid.",
+      "number_of_instances": 732,
+      "number_of_unique_frames": 631,
+      "number_of_gx_sequences": 5
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Other Plastic Film",
+      "abbreviation": "Film",
+      "recycle_category": "Other Plastics",
+      "description": "A thin, continuous form of plastic material often used to create bags or packaging.",
+      "number_of_instances": 22,
+      "number_of_unique_frames": 20,
+      "number_of_gx_sequences": 3
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Other Plastics",
+      "abbreviation": "",
+      "recycle_category": "Other Plastics",
+      "description": "All remaining plastics not listed above.",
+      "number_of_instances": 223,
+      "number_of_unique_frames": 187,
+      "number_of_gx_sequences": 6
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Other Rigid/Bulky Plastics",
+      "abbreviation": "",
+      "recycle_category": "Other Plastics",
+      "description": "Plastics that are the size of a 5-gallon bucket or larger.",
+      "number_of_instances": 18,
+      "number_of_unique_frames": 16,
+      "number_of_gx_sequences": 1
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Other Unnumbered Containers & Fragments",
+      "abbreviation": "Unnumbered",
+      "recycle_category": "Other Plastic Containers",
+      "description": "Any loose / unnumbered plastic lids, tops, caps, containers, or container fragments.",
+      "number_of_instances": 328,
+      "number_of_unique_frames": 280,
+      "number_of_gx_sequences": 6
+    },
+    {
+      "supercategory": "Plastics",
+      "name": "Plastic",
+      "abbreviation": "",
+      "recycle_category": "",
+      "description": "",
+      "number_of_instances": 20,
+      "number_of_unique_frames": 18,
+      "number_of_gx_sequences": 2
+    }
+  ]
+}

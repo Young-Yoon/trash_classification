@@ -1,9 +1,11 @@
 # EgoWaste trash classification (v1–v16)
 
-Reproducible scripts, version registry, and summary metrics for multimodal
-plastic sorting on the EgoWaste camera-1 plastics subset. Raw frames, SAM
-pickles, candidate-crop PNGs, audio, and checkpoints are **not** in this
-repository.
+Reproducible scripts, version registry, summary metrics, paper snapshot, and
+original Colab notebooks for multimodal plastic sorting on the EgoWaste
+camera-1 plastics subset.
+
+Raw frames, SAM pickles, candidate-crop PNGs, audio, and checkpoints are
+**not** in this repository (~30 MB of meta + paper + notebooks are).
 
 See [DEV_HISTORY.md](DEV_HISTORY.md) for the sequential v1–v16 story and
 [docs/notebook_mapping.md](docs/notebook_mapping.md) for Colab → script ports.
@@ -12,6 +14,9 @@ See [DEV_HISTORY.md](DEV_HISTORY.md) for the sequential v1–v16 story and
 
 | Path | Purpose |
 |------|---------|
+| `data/` | Meta CSVs, taxonomy, training metadata (~10 MB) |
+| `paper/` | Latest IEEE draft (`main.tex`, `refs.bib`, `main.pdf`, key figs) |
+| `notebooks/` | Original Colab `.ipynb` (history / reference, ~12 MB) |
 | `scripts/segment/` | SAM3 detection + IoU |
 | `scripts/classify/` | Crop classifiers, rerank v7–v16, late fusion |
 | `scripts/whisper/` | Audio extract, denoise, LoRA Whisper, eval |
@@ -22,41 +27,43 @@ See [DEV_HISTORY.md](DEV_HISTORY.md) for the sequential v1–v16 story and
 
 ## Environment
 
+By default, meta CSVs resolve from `data/camera1_plastics_shareable_dataset/`.
+Point asset/runtime trees elsewhere when needed:
+
 ```bash
-export EGOWASTE_ROOT=/path/to/data_tree   # meta CSV, audio, segment/, checkpoints
-export EGOWASTE_ASSET_ROOT=/path/to/assets  # optional frames/masks root
-export SAM3_ROOT=/path/to/sam3            # detection only
-# optional: CSIRE_CODE_ROOT if meta still lives under a csire_code checkout
+export EGOWASTE_ASSET_ROOT=/path/to/assets  # frames/masks/clips
+export EGOWASTE_ROOT=/path/to/runtime       # audio, segment/, checkpoints
+export SAM3_ROOT=/path/to/sam3              # detection only
 ```
 
 Install Python deps:
 
 ```bash
+pip install -r requirements.txt
 pip install -r scripts/requirements.txt
 pip install -r scripts/classify/requirements.txt
 ```
 
 ## Reproduce
 
-**CPU / summaries only** (works with shipped `summaries/` plus local meta CSV):
+**CPU / summaries only** (shipped `data/` + `summaries/`):
 
 ```bash
 chmod +x run_repro.sh
 ./run_repro.sh summaries
 ```
 
-**GPU stages** (data + weights required; commands are commented inside the shell wrappers):
+**GPU stages** (local weights + frames required):
 
 ```bash
-bash scripts/segment/run_pipeline.sh      # SAM3 detect + IoU
-bash scripts/whisper/run_pipeline.sh      # metadata / LoRA / transcribe / eval
-bash scripts/classify/run_pipeline.sh     # train or evaluate presets
-# Segment-version sweep (v1–v16):
+bash scripts/segment/run_pipeline.sh
+bash scripts/whisper/run_pipeline.sh
+bash scripts/classify/run_pipeline.sh
 python scripts/classify/run_segment_classify_eval.py --help
 ```
 
-Gemini classification remains an optional path in `scripts/classify/`; do not
-commit API keys.
+Gemini classification remains optional in `scripts/classify/`; do not commit API keys.
+Notebooks under `notebooks/` are archival; prefer `scripts/` for repro.
 
 ## Headline numbers (v15)
 
@@ -73,5 +80,5 @@ Paper mask IoU and CSV `mean_max_iou_top1` are different aggregations; see
 
 ## License / data
 
-Dataset and model weights are external. Point `EGOWASTE_ROOT` at a licensed
-local copy. This repo tracks code + summary tables only.
+Full video/frame assets and model weights stay external. This repo ships
+metadata, paper figures/PDF, notebooks, and code only.
